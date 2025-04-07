@@ -1,0 +1,355 @@
+{
+ 
+  "REACT_APP_warning": {
+    "warningMessage": "Please view this page on a device with a screen resolution of at least 1200 x 800.",
+    "title": "Huldra"
+  
+  },
+"REACT_APP_home": {
+    "title": "Huldra: Visual Acuity Test",
+    "introText": "",
+    "signupText": "If you don't have a participant ID, you can have one by clicking the button below.",
+    "additionalText": "Please view this application in full screen mode."
+  },
+  "REACT_APP_registration": {
+    "Q1": {
+      "label": "Name"
+    },
+    "Q2": {
+      "label": "E-mail address"
+    },
+    "Q3": {
+      "label": "Country",
+      "showTooltip": true,
+      "tooltipMessage": "This field is mandatory."
+    },
+    "Q4": {
+      "label": "What is your age range?"
+    },
+    "Q5": {
+      "label": "I am a",
+      "showTooltip": true,
+      "tooltipMessage": "This field is mandatory."
+    },
+    "Q6": {
+      "label": "What type of device are you using to participate in the study?",
+      "showTooltip": true,
+      "tooltipMessage": "This field is mandatory."
+    },
+   "Q7": {
+    "label": "Do you wear Glasses or contact lenses?"
+  }
+,
+    "Q8": {
+      "label": "I understand that my participation in this study is voluntary, my responses will remain confidential "
+    },
+    "Q10": {
+      "label": "Have you ever been diagnosed with any of the following vision conditions? (Select all that apply) "
+    },
+    "Q11": {
+      "label": "Are you participating in this study under normal lighting conditions?"
+    }
+  },
+  "REACT_APP_background": [
+    {
+      "sectionTitle": "Background",
+      "sectionText": "",
+      "sectionClassName": "background-section",
+      "sectionTitleClassName": "background-section-title",
+      "sectionTextClassName": "background-text-content",
+      "sectionContent": []
+    },
+    {
+      "sectionTitle": "",
+      "sectionText": "We are conducting a user study to evaluate how variations in visual acuity, color perception, and screen contrast influence user experience and survey accuracy. Your participation helps improve digital accessibility standards. To ensure that all participants can accurately perceive the visual content presented in this survey, we have included two preliminary assessments before the main study begins:",
+      "sectionClassName": "background-section",
+      "sectionTitleClassName": "background-section-title",
+      "sectionTextClassName": "background-text-content",
+      "sectionContent": [
+        {
+          "title": "Color Vision Assessment (Ishihara Test)",
+          "text": "This test detects red-green color vision deficiencies to determine whether color perception might impact how participants interpret visual explanations.",
+          "text1": "Look at the image: Each plate contains numbers or patterns made of colored dots.",
+          "text2": "Identify the number: Enter the number you see or write \"Cannot see\" if no number is visible.",
+          "imagePath": "/gallery/image-sample.png",
+          "imageClassName": "explanation-background-image",
+          "imageAlternativeText": "sample-image",
+          "descriptionClassName": "background-single-block-description-content",
+          "titleClassName": "background-single-block-description-label",
+          "textClassName": "background-text-content"
+        },
+        {
+          "title": "Screen Contrast Test ",
+          "text": "This test evaluates the contrast quality of the participant’s display to ensure that screen limitations do not affect their ability to differentiate visual elements",
+          "text1": "Observe the color bars: Each bar contains multiple shades of the same color.",
+          "text2": "Count the shades: Select the number of distinct shades you can see.",
+          "text3": "Proceed to the next one",
+          "className": "background-single-block",
+          "imagePath": "/gallery/image-test2.png",
+          "imageClassName": "explanation-background-image",
+          "imageAlternativeText": "sample-image",
+          "descriptionClassName": "background-single-block-description-content",
+          "titleClassName": "background-single-block-description-label",
+          "textClassName": "background-text-content"
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Main survey (part 1)",
+      "sectionText": "There are different ways of explaining why an AI model predicts a specific outcome. AI helps detect polyps from gastrointestinal images, for medical diagnosis. In the following, AI has detected a polyp. There are different ways of explaining why the model predicts this outcome. Explanation methods mostly fall into 2 categories: we call these intrinsic (saliency based) and dataset based. Each category is further described below: ",
+      "sectionClassName": "background-section",
+      "sectionTitleClassName": "background-section-title",
+      "sectionTextClassName": "background-text-content",
+      "sectionContent": [
+        {
+          "title": "",
+          "text": "",
+          "text1": "Intrinsic (Saliency Based):  Saliency-based explanations use heatmaps (red = important, blue = less important) to show where the AI is focusing.",
+          "text2": "Dataset Based: Dataset-based explanations compare images, with green regions supporting AI predictions and red regions opposing them.",
+          "className": "background-single-block",
+          "imagePath": "/gallery/image-survey.png",
+          "imageClassName": "explanation-background-image",
+          "imageAlternativeText": "sample-image",
+          "descriptionClassName": "background-single-block-description-content",
+          "titleClassName": "background-single-block-description-label",
+          "textClassName": "background-text-content"
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Main survey (part 2)",
+      "sectionText": "In this part of our study, you will first watch a short video clip of a goal event. Then, you will see two alternative thumbnail images representing the video, and you’ll pick the thumbnail you prefer or feel is most representative. ",
+      "sectionClassName": "background-section",
+      "sectionTitleClassName": "background-section-title",
+      "sectionTextClassName": "background-text-content",
+      "sectionContent": [
+        {
+          "title": "",
+          "text": "On the following page, you will see one of these thumbnails again, displayed in two different ways:",
+          "text1": "Original: The standard, unmodified image.",
+          "text2": "Simulated: A version that mimics how someone with color blindness might see the image.",
+          "className": "background-single-block",
+          "imagePath": "/gallery/image-survey2.png",
+          "imageClassName": "explanation-background-image",
+          "imageAlternativeText": "sample-image",
+          "descriptionClassName": "background-single-block-description-content",
+          "titleClassName": "background-single-block-description-label",
+          "textClassName": "background-text-content"
+        }
+      ]
+    }
+  ],
+"REACT_APP_demonstration": [
+  {
+    "textBefore": "",
+  
+    "textAfter": "",
+    "hasImage": true,
+    "imagePath": "/gallery/image-sample1.png",
+    "imageClassName": "demonstration-image"
+  }
+],
+
+  "REACT_APP_test": [
+    {"testType": "visualTest", "visualTest": true},
+    {"testType": "visualTest2", "visualTest2": true},
+    {"testType": "visualTest3", "visualTest3": true},
+    {"testType": "visualTest4", "visualTest4": true},
+    {"testType": "visualTest5", "visualTest5": true},
+    {"testType": "contrastTest", "contrastTest": true}
+  ],
+  "REACT_APP_caseImage": {
+    "caseImageColumnLeft": {
+      "label": "Case"
+    },
+    "caseImageColumnMiddle": {
+      "title": "Answer Options",
+      "text": "",
+      "leftSectionTitle": "Option A",
+      "leftSectionButtonlabel": "View details",
+      "leftSectionTextWithIconsLabel": "Viewed",
+      "rightSectionTitle": "Option B",
+      "rightSectionButtonlabel": "View details",
+      "rightSectionTextWithIconsLabel": "Viewed",
+      "popupA": {
+        "mainTitle": "Compare original image with Option A",
+        "leftImageTitle": "Original",
+        "rightImageTitle": "Option A",
+        "descriptionTitle": "",
+        "descriptionText": ""
+      },
+      "popupB": {
+        "mainTitle": "Compare original image with Option B",
+        "leftImageTitle": "Original",
+        "rightImageTitle": "Option B",
+        "descriptionTitle": "",
+        "descriptionText": "",
+        "gallerySubstring": "similar"
+      }
+    },
+    "caseImageColumnRight": {
+      "title": "Your Answer",
+      "text": "Please click on one of the images (option A or B) to place it on top. Do not drag and drop the image. The top image is your preferred option for this case."
+    }
+  },
+  "REACT_APP_caseHybrid": {
+    "caseHybridColumnLeft": {
+      "label": "Case"
+    },
+    "caseHybridColumnMiddle": {
+      "title": "Alternative Thumbnails",
+      "text": "Below are two alternative thumbnails for this video clip.",
+      "leftSectionTitle": "Thumbnail A",
+      "leftSectionButtonlabel": "View details",
+      "leftSectionTextWithIconsLabel": "Viewed",
+      "rightSectionTitle": "Thumbnail A",
+      "rightSectionButtonlabel": "View details",
+      "rightSectionTextWithIconsLabel": "Viewed",
+      "popupA": {
+        "mainTitle": "Thumbnail A",
+        "leftImageTitle": "Original",
+        "rightImageTitle": "Option A",
+        "descriptionTitle": "Description",
+        "descriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce neque odio, tempus quis sapien id, accumsan aliquam nunc. Proin tincidunt, felis nec iaculis rutrum, ex quam condimentum ante, id sagittis elit odio sed risus."
+      },
+      "popupB": {
+        "mainTitle": "Thumbnail B",
+        "leftImageTitle": "Original",
+        "rightImageTitle": "Thumbnail B",
+        "descriptionTitle": "Description",
+        "descriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce neque odio, tempus quis sapien id, accumsan aliquam nunc. Proin tincidunt, felis nec iaculis rutrum, ex quam condimentum ante, id sagittis elit odio sed risus.",
+        "gallerySubstring": "similar"
+      }
+    },
+    "caseHybridColumnRight": {
+      "title": "Your Answer",
+      "text": "Please click on one of the images (option A or B) to place it on top. Do not drag and drop the image. The top image is your preferred option for this case."
+    }
+  },
+  "REACT_APP_caseVideo": {
+    "caseVideoColumnLeft": {
+      "label": "Case",
+      "sectionVideoHeight": "225px",
+      "sectionVideoWidth": "400px",
+      "rightSectionVideoLabel": "Video Clip B",
+      "leftSectionVideoLabel": "Video Clip A",
+      "sectionButtonlabel": "Select"
+    },
+    "caseVideoColumnRight": {
+      "title": "Your Answer",
+      "text": "Please select one of the video clips to place it on top. The top video clip is your preferred option for this case."
+    }
+  },
+  "REACT_APP_caseText": {
+    "caseTextColumnLeft": {
+      "label": "Case",
+      "rightSectionTextLabel": "Text B",
+      "leftSectionTextLabel": "Text A",
+      "sectionButtonlabel": "Select"
+    },
+    "caseTextColumnRight": {
+      "title": "Your Text Answer",
+      "text": "Please select one of the texts to place it on top. The top text is your preferred option for this case."
+    }
+  },
+  "REACT_APP_caseAudio": {
+    "caseAudioColumnLeft": {
+      "label": "Case",
+      "sectionAudioHeight": "300px",
+      "sectionAudioWidth": "400px",
+      "rightSectionAudioLabel": "Audio Clip B",
+      "leftSectionAudioLabel": "Audio Clip A",
+      "sectionButtonlabel": "Select"
+    },
+    "caseAudioColumnRight": {
+      "title": "Your Answer",
+      "text": "Please select one of the audio clips to place it on top. The top audio clip is your preferred option for this case."
+    }
+  },
+  "REACT_APP_summaryAndFeedback": {
+    "summary": {
+      "display": true,
+      "highlightAnswers": true,
+      "title": "Summary of cases",
+      "text": "",
+      "label": "Case",
+      "videoPlaceholderIconPath": "/gallery/video-placeholder.png",
+      "textPlaceholderIconPath": "/gallery/text-placeholder.png",
+      "audioPlaceholderIconPath": "/gallery/audio-placeholder.png",
+      "imagePlaceholderIconPath": "/gallery/image-placeholder.png"
+    },
+    "feedbackForm": {
+      "display": true,
+      "title": "Feedback",
+      "text": "",
+      "feedbackFormQuestions": [
+       
+        
+        {
+          "questionType": "likert",
+          "id": "Q2",
+          "label": "How difficult was it to distinguish between these two images on a scale of 10?",
+          "optional": false,
+          "likertQuestions": [
+            
+            {
+              "question": "",
+              "size": 10,
+              "label": "How difficult it was on a scale of 10?"
+            }
+          ]
+        },
+        {
+          "questionType": "text",
+          "id": "Q1",
+          "label": "Feel free to give any feedback",
+          "optional": true,
+          "showTooltip": false
+        }
+        
+      ]
+    }
+  },
+  "REACT_APP_end": {
+    "title": "",
+    "endMessage": "Thank you for participating in our survey!",
+    "redirectTimeout": 2500
+  },
+  "REACT_APP_general": {
+    "softwareInfoTag": "NA (Development)",
+    "appName": "Huldra",
+    "allowRevisitingAnswers": true,
+    "allowProceedingWithoutAnswering": false,
+    "caseImageViewDetailsMandatory": false,
+    "caseHybridViewDetailsMandatory": false,
+    "caseOrder": {
+      "cases": [ "image-case1", "image-case2", "image-case3", "image-case4", "image-case5",  "hybrid-case1", "image-football1", "image-football2", "hybrid-case2", "image-football3", "image-football4"],
+      "shuffle": ""
+    },
+    "storage": {
+      "assetsStorageType": "local",
+      "responsesStorageType": "local"
+    },
+    "outputJson": ["SoftwareInfo", "SessionEvents"],
+    "color": {
+      "themeColor": "blue",
+      "buttonColor": "yellow"
+    },
+    "footer": {
+      "icon1ClassName": "fa fa-envelope-o mr-1 fa-lg generic-icon",
+      "icon2ClassName": "fa fa-github ml-1 fa-lg generic-icon",
+      "icon1Url": "mailto:huldra@simula.no",
+      "icon2Url": "https://github.com/simula/huldra",
+      "label": "huldra@simula.no"
+    },
+    "header": {
+      "labelBackground": "Background",
+      "labelTest": "Accessibility Test",
+      "labelDemonstration": "Demonstration",
+      "labelCase": "Questionnaire",
+      "labelSummaryAndFeedback": "Summary and Feedback"
+    },
+    "loginOption": "anonymousWithID",
+    "approvedParticipantIDs": ["sample-participant-id-1", "sample-participant-id-2"]
+  }
+}
