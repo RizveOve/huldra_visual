@@ -1,17 +1,17 @@
-import React, { useEffect, useContext, useState } from "react";
-import { toastInfo } from "../utils/toast";
-import { AppContext } from "../context/appContext";
-import { listFiles } from "../utils/firebase";
-import { getCaseJsonFile } from "../utils/urlHandler";
-import CaseImageColumnMiddle from "../major-components/caseImageColumnMiddle";
-import CaseImageColumnleft from "../major-components/caseImageColumnLeft";
-import CaseImageColumnRight from "../major-components/caseImageColumnRight";
 import Modal from "@mui/material/Modal";
-import Popup from "../minor-components/popup";
+import React, { useContext, useEffect, useState } from "react";
 import "../assets/css/caseImage.css";
 import "../assets/css/common.css";
+import { AppContext } from "../context/appContext";
+import CaseImageColumnleft from "../major-components/caseImageColumnLeft";
+import CaseImageColumnMiddle from "../major-components/caseImageColumnMiddle";
+import CaseImageColumnRight from "../major-components/caseImageColumnRight";
+import Popup from "../minor-components/popup";
+import { listFiles } from "../utils/firebase";
 import getConfig from "../utils/handleStorageConfig";
 import { fetchJsonAttributeValue } from "../utils/loadAssets";
+import { toastInfo } from "../utils/toast";
+import { getCaseJsonFile } from "../utils/urlHandler";
 
 const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
   const [caseDescription, setCaseDescription] = useState("");
@@ -22,8 +22,12 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
   const [openChoiceB, setOpenChoiceB] = useState(false);
   const [casePageType] = useState("ranking");
   const [galleryImages, setGalleryImages] = useState([]);
-  const { rootDirectory, disableNextButton, setDisableNextButton, REACT_APP_general } =
-    useContext(AppContext);
+  const {
+    rootDirectory,
+    disableNextButton,
+    setDisableNextButton,
+    REACT_APP_general,
+  } = useContext(AppContext);
   const empty = `/gallery/empty-white.png`;
   const [first, setFirst] = useState(empty);
   const [second, setSecond] = useState(empty);
@@ -50,26 +54,43 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
     }
   } else if (storageConfig.assetsStorageType === "firebase") {
     // the following file extensions will actually be overwritten in firebase.js
-    choiceAHighRes = `/gallery/cases/${pagesOrder[caseId - 1]}/${pagesOrder[caseId - 1]}-a.png`;
-    choiceBHighRes = `/gallery/cases/${pagesOrder[caseId - 1]}/${pagesOrder[caseId - 1]}-b.png`;
-    choiceAThumbnail = `/gallery/cases/${pagesOrder[caseId - 1]}/${pagesOrder[caseId - 1]}-a.png`;
-    choiceBThumbnail = `/gallery/cases/${pagesOrder[caseId - 1]}/${pagesOrder[caseId - 1]}-b.png`;
-    originalThumbnail = `/gallery/cases/${pagesOrder[caseId - 1]}/${pagesOrder[caseId - 1]}.png`;
-    originalHighRes = `/gallery/cases/${pagesOrder[caseId - 1]}/${pagesOrder[caseId - 1]}.png`;
+    choiceAHighRes = `/gallery/cases/${pagesOrder[caseId - 1]}/${
+      pagesOrder[caseId - 1]
+    }-a.png`;
+    choiceBHighRes = `/gallery/cases/${pagesOrder[caseId - 1]}/${
+      pagesOrder[caseId - 1]
+    }-b.png`;
+    choiceAThumbnail = `/gallery/cases/${pagesOrder[caseId - 1]}/${
+      pagesOrder[caseId - 1]
+    }-a.png`;
+    choiceBThumbnail = `/gallery/cases/${pagesOrder[caseId - 1]}/${
+      pagesOrder[caseId - 1]
+    }-b.png`;
+    originalThumbnail = `/gallery/cases/${pagesOrder[caseId - 1]}/${
+      pagesOrder[caseId - 1]
+    }.png`;
+    originalHighRes = `/gallery/cases/${pagesOrder[caseId - 1]}/${
+      pagesOrder[caseId - 1]
+    }.png`;
   }
 
   useEffect(() => {
     setDisableNextButton(true);
     setSubscribed(true);
 
-    const CaseStudyAnswers = JSON.parse(localStorage.getItem("CaseStudyAnswers"));
+    const CaseStudyAnswers = JSON.parse(
+      localStorage.getItem("CaseStudyAnswers")
+    );
     if (CaseStudyAnswers && CaseStudyAnswers[caseId]) {
       setDisableNextButton(false);
 
       if (CaseStudyAnswers[caseId] && CaseStudyAnswers[caseId][0] === "A") {
         setFirst(choiceAThumbnail);
         setSecond(choiceBThumbnail);
-      } else if (CaseStudyAnswers[caseId] && CaseStudyAnswers[caseId][0] === "B") {
+      } else if (
+        CaseStudyAnswers[caseId] &&
+        CaseStudyAnswers[caseId][0] === "B"
+      ) {
         setFirst(choiceBThumbnail);
         setSecond(choiceAThumbnail);
       }
@@ -84,7 +105,9 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
 
       let jsonPath = "";
       if (storageConfig.assetsStorageType === "local") {
-        const validCaseFiles = JSON.parse(localStorage.getItem("ValidCaseFiles"));
+        const validCaseFiles = JSON.parse(
+          localStorage.getItem("ValidCaseFiles")
+        );
         if (validCaseFiles && validCaseFiles[caseId - 1]) {
           const caseFiles = validCaseFiles[caseId - 1];
           jsonPath = caseFiles[0];
@@ -94,11 +117,15 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
 
         let gallery = await listFiles(
           `/gallery/cases/${pagesOrder[caseId - 1]}/`,
-          REACT_APP_caseImage["caseImageColumnMiddle"].popupB["gallerySubstring"]
+          REACT_APP_caseImage["caseImageColumnMiddle"].popupB[
+            "gallerySubstring"
+          ]
         );
         setGalleryImages(gallery);
       }
-      setCaseDescription(await fetchJsonAttributeValue(jsonPath, "description"));
+      setCaseDescription(
+        await fetchJsonAttributeValue(jsonPath, "description")
+      );
     })();
     return () => {
       setSubscribed(false);
@@ -122,7 +149,8 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
   ]);
 
   const selectAsFirst = (choice) => {
-    const caseImageViewDetailsMandatory = REACT_APP_general["caseImageViewDetailsMandatory"];
+    const caseImageViewDetailsMandatory =
+      REACT_APP_general["caseImageViewDetailsMandatory"];
 
     if (
       caseImageViewDetailsMandatory === true &&
@@ -136,7 +164,9 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
       first !== empty ||
       (openedChoiceA === true && openedChoiceB === true)
     ) {
-      const CaseStudyAnswers = JSON.parse(localStorage.getItem("CaseStudyAnswers"));
+      const CaseStudyAnswers = JSON.parse(
+        localStorage.getItem("CaseStudyAnswers")
+      );
       const newAnswers = { ...CaseStudyAnswers };
       if (choice === "choiceA") {
         newAnswers[caseId] = ["A", "B"];
@@ -172,9 +202,13 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
         leftSectionClassName="case-image-alternative-section"
         leftSectionImageUrl={choiceAThumbnail}
         leftSectionImageClassName="case-image-column-middle-image"
-        leftSectionTitle={REACT_APP_caseImage["caseImageColumnMiddle"].leftSectionTitle}
+        leftSectionTitle={
+          REACT_APP_caseImage["caseImageColumnMiddle"].leftSectionTitle
+        }
         leftSectionButtonClassName="btn control"
-        leftSectionButtonlabel={REACT_APP_caseImage["caseImageColumnMiddle"].leftSectionButtonlabel}
+        leftSectionButtonlabel={
+          REACT_APP_caseImage["caseImageColumnMiddle"].leftSectionButtonlabel
+        }
         leftSectionImageOnClick={() => {
           selectAsFirst("choiceA");
         }}
@@ -185,10 +219,11 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
         leftSectionHasButton={true}
         leftSectionTextWithIconsHasLeftIcon={false}
         leftSectionTextWithIconsLabel={
-          REACT_APP_caseImage["caseImageColumnMiddle"].leftSectionTextWithIconsLabel
+          REACT_APP_caseImage["caseImageColumnMiddle"]
+            .leftSectionTextWithIconsLabel
         }
         leftSectionTextWithIconsHasRightIcon={true}
-        leftSectionTextWithIconsRightIconClassName="fa fa-check viewed"
+        leftSectionTextWithIconsRightIconClassName=""
         leftSectionShowTextWithIcons={openedChoiceA === true}
         leftSectionTextWithIconsClassName="case-image-text-with-icons"
         rightSectionClassName="case-image-alternative-section"
@@ -198,7 +233,9 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
         }
         rightSectionImageUrl={choiceBThumbnail}
         rightSectionImageClassName="case-image-column-middle-image"
-        rightSectionTitle={REACT_APP_caseImage["caseImageColumnMiddle"].rightSectionTitle}
+        rightSectionTitle={
+          REACT_APP_caseImage["caseImageColumnMiddle"].rightSectionTitle
+        }
         rightSectionButtonOnClick={() => {
           setOpenChoiceB(true);
           setOpenedChoiceB(true);
@@ -209,40 +246,85 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
         }}
         rightSectionTextWithIconsHasLeftIcon={false}
         rightSectionTextWithIconsLabel={
-          REACT_APP_caseImage["caseImageColumnMiddle"].rightSectionTextWithIconsLabel
+          REACT_APP_caseImage["caseImageColumnMiddle"]
+            .rightSectionTextWithIconsLabel
         }
         rightSectionTextWithIconsHasRightIcon={true}
-        rightSectionTextWithIconsRightIconClassName="fa fa-check viewed"
+        rightSectionTextWithIconsRightIconClassName=""
         rightSectionShowTextWithIcons={openedChoiceB === true}
         rightSectionTextWithIconsClassName="case-image-text-with-icons"
       />
-      <Modal className="case-image-modal" open={openChoiceA} onClose={() => setOpenChoiceA(false)}>
+      <Modal
+        className="case-image-modal"
+        open={openChoiceA}
+        onClose={() => setOpenChoiceA(false)}
+      >
         <Popup
           onCloseIconClick={() => setOpenChoiceA(false)}
-          mainTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupA["mainTitle"]}
+          mainTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupA["mainTitle"]
+          }
           leftImageHighResUrl={originalHighRes}
           leftImageThumbnailUrl={originalThumbnail}
-          leftImageTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupA["leftImageTitle"]}
+          leftImageTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupA[
+              "leftImageTitle"
+            ]
+          }
           rightImageHighResUrl={choiceAHighRes}
           rightImageThumbnailUrl={choiceAThumbnail}
-          rightImageTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupA["rightImageTitle"]}
-          descriptionTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupA["descriptionTitle"]}
-          descriptionText={REACT_APP_caseImage["caseImageColumnMiddle"].popupA["descriptionText"]}
+          rightImageTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupA[
+              "rightImageTitle"
+            ]
+          }
+          descriptionTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupA[
+              "descriptionTitle"
+            ]
+          }
+          descriptionText={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupA[
+              "descriptionText"
+            ]
+          }
           popupType="withoutGallery"
         />
       </Modal>
-      <Modal className="case-image-modal" open={openChoiceB} onClose={() => setOpenChoiceB(false)}>
+      <Modal
+        className="case-image-modal"
+        open={openChoiceB}
+        onClose={() => setOpenChoiceB(false)}
+      >
         <Popup
           onCloseIconClick={() => setOpenChoiceB(false)}
-          mainTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupB["mainTitle"]}
+          mainTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupB["mainTitle"]
+          }
           leftImageHighResUrl={originalHighRes}
           leftImageThumbnailUrl={originalThumbnail}
-          leftImageTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupB["leftImageTitle"]}
+          leftImageTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupB[
+              "leftImageTitle"
+            ]
+          }
           rightImageHighResUrl={choiceBHighRes}
           rightImageThumbnailUrl={choiceBThumbnail}
-          rightImageTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupB["rightImageTitle"]}
-          descriptionTitle={REACT_APP_caseImage["caseImageColumnMiddle"].popupB["descriptionTitle"]}
-          descriptionText={REACT_APP_caseImage["caseImageColumnMiddle"].popupB["descriptionText"]}
+          rightImageTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupB[
+              "rightImageTitle"
+            ]
+          }
+          descriptionTitle={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupB[
+              "descriptionTitle"
+            ]
+          }
+          descriptionText={
+            REACT_APP_caseImage["caseImageColumnMiddle"].popupB[
+              "descriptionText"
+            ]
+          }
           popupType="withGallery"
           galleryImages={galleryImages}
         />
@@ -250,8 +332,14 @@ const CaseImage = ({ caseId, totalCases, REACT_APP_caseImage }) => {
       {casePageType === "ranking" && (
         <CaseImageColumnRight
           className="case-image-column"
-          title={REACT_APP_caseImage && REACT_APP_caseImage["caseImageColumnRight"].title}
-          text={REACT_APP_caseImage && REACT_APP_caseImage["caseImageColumnRight"].text}
+          title={
+            REACT_APP_caseImage &&
+            REACT_APP_caseImage["caseImageColumnRight"].title
+          }
+          text={
+            REACT_APP_caseImage &&
+            REACT_APP_caseImage["caseImageColumnRight"].text
+          }
           textClassName="case-image-background-text"
           topSectionClassName="case-image-generic-image-section"
           topSectionImageUrl={first}

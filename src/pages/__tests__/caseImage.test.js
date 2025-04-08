@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import CaseImage from "../caseImage";
-import { AppContext } from "../../context/appContext";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { AppContext } from "../../context/appContext";
+import CaseImage from "../caseImage";
 
 // This customRender is necessary to correctly render the App dependent on AppContext
 const customRender = (ui, { providerProps, ...renderOptions }) => {
@@ -77,10 +77,10 @@ test("clicking the 'View Details' button in the caseImage page (case 1) shows a 
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce neque odio, tempus quis sapien id, accumsan aliquam nunc. Proin tincidunt, felis nec iaculis rutrum, ex quam condimentum ante, id sagittis elit odio sed risus.",
       leftSectionTitle: "Option A",
       leftSectionButtonlabel: "View details",
-      leftSectionTextWithIconsLabel: "Viewed",
+      leftSectionTextWithIconsLabel: "",
       rightSectionTitle: "Option B",
       rightSectionButtonlabel: "View details",
-      rightSectionTextWithIconsLabel: "Viewed",
+      rightSectionTextWithIconsLabel: "",
       popupA: {
         mainTitle: "Sample Title for Popup A",
         leftImageTitle: "Original",

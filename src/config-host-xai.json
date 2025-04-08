@@ -111,10 +111,10 @@
       "text": "Below are two explanations showing which regions of the image support this prediction. Please review both explanations (click “See explanation”) to proceed with the ranking.",
       "leftSectionTitle": "(A) Intrinsic",
       "leftSectionButtonlabel": "View explanation",
-      "leftSectionTextWithIconsLabel": "Viewed",
+      "leftSectionTextWithIconsLabel": "",
       "rightSectionTitle": "(B) Dataset based",
       "rightSectionButtonlabel": "View explanation",
-      "rightSectionTextWithIconsLabel": "Viewed",
+      "rightSectionTextWithIconsLabel": "",
       "popup1": {
         "mainTitle": "Explanation: (A) Intrinsic",
         "leftImageTitle": "Original image",
