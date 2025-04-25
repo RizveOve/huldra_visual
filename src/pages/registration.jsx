@@ -296,20 +296,26 @@ const Registration = ({
         <div className="horizontal-sections">
           <div className="vertical-section">
             <InputTextField
-              label={REACT_APP_registration && REACT_APP_registration["Q1"].label}
+              label={
+                REACT_APP_registration && REACT_APP_registration["Q1"].label
+              }
               id="name"
               onChange={(e) => onNameChange(e)}
               optional={true}
             />
 
             <InputTextField
-              label={REACT_APP_registration && REACT_APP_registration["Q2"].label}
+              label={
+                REACT_APP_registration && REACT_APP_registration["Q2"].label
+              }
               id="email"
               onChange={(e) => onEmailChange(e)}
               optional={true}
             />
             <InputRadio
-              label={REACT_APP_registration && REACT_APP_registration["Q5"].label}
+              label={
+                REACT_APP_registration && REACT_APP_registration["Q5"].label
+              }
               onChange={handleDegreeChange}
               onTextChange={handleOtherDegreeChange}
               degreeOther={degreeOther}
@@ -320,8 +326,14 @@ const Registration = ({
                 ["Gamer", false, ""],
                 ["Other", true, "please specify"],
               ]}
-              showTooltip={REACT_APP_registration && REACT_APP_registration["Q5"].showTooltip}
-              tooltipMessage={REACT_APP_registration && REACT_APP_registration["Q5"].tooltipMessage}
+              showTooltip={
+                REACT_APP_registration &&
+                REACT_APP_registration["Q5"].showTooltip
+              }
+              tooltipMessage={
+                REACT_APP_registration &&
+                REACT_APP_registration["Q5"].tooltipMessage
+              }
             />
 
             <InputMultipleChoice
@@ -362,8 +374,8 @@ const Registration = ({
             <InputMultipleChoice
               config={REACT_APP_registration}
               label={REACT_APP_registration?.Q11?.label}
-              id="Are you participating in this study under normal lighting conditions?"
-              choices={["Yes", "No"]}
+              id="Where are you currently completing this survey?"
+              choices={["Indoor", "Outdoor"]}
               optional={true}
               showTooltip={false}
               tooltipMessage="Choose one or more options"
