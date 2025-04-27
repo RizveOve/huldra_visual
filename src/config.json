@@ -44,7 +44,7 @@
       "label": "Have you ever been diagnosed with any of the following vision conditions? (Select all that apply) "
     },
     "Q11": {
-      "label": "Where are you currently completing this survey?"
+      "label": "Are you participating in this study under normal lighting conditions?"
     }
   },
   "REACT_APP_background": [

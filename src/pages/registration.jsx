@@ -374,8 +374,8 @@ const Registration = ({
             <InputMultipleChoice
               config={REACT_APP_registration}
               label={REACT_APP_registration?.Q11?.label}
-              id="Where are you currently completing this survey?"
-              choices={["Indoor", "Outdoor"]}
+              id="Are you participating in this study under normal lighting conditions?"
+              choices={["Yes", "No"]}
               optional={true}
               showTooltip={false}
               tooltipMessage="Choose one or more options"
